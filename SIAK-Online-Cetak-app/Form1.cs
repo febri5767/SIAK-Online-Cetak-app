@@ -21,7 +21,7 @@ namespace SIAK_Online_Cetak_app
     {
         private FilterInfoCollection captureDevices;
         private VideoCaptureDevice captureDevice;
-
+        private Process onscreenProcess;
         public Form1()
         {
             InitializeComponent();
@@ -108,6 +108,7 @@ namespace SIAK_Online_Cetak_app
 
         private void buttonCetak_Click(object sender, EventArgs e)
         {
+            CloseOnScreenKeyboard();
             if (webViewSIAK != null && webViewSIAK.CoreWebView2 != null)
             {
                 webViewSIAK.CoreWebView2.Navigate("https://layananonline.dukcapil.kemendagri.go.id/Terpusat/Cetak/");
@@ -141,10 +142,11 @@ namespace SIAK_Online_Cetak_app
                     {
                         captureDevice.Stop();
                     }
-
+                    
                     webViewSIAK.ExecuteScriptAsync("document.getElementById('PIN').value=" + '\'' + result.ToString() + '\'');
                     webViewSIAK.Focus();
                     pictureBoxCam.Image = null;
+                    ShowOnScreenKeyboard();
                 }
             }
         }
@@ -154,6 +156,38 @@ namespace SIAK_Online_Cetak_app
             if (captureDevice != null)
             {
                 captureDevice.DisplayPropertyPage(IntPtr.Zero);
+            }
+        }
+
+        private void ShowOnScreenKeyboard() 
+        {
+            //string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
+            //string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
+            //onscreenProcess = System.Diagnostics.Process.Start(onScreenKeyboardPath);
+            onscreenProcess = System.Diagnostics.Process.Start("osk.exe");
+        }
+
+        private void CloseOnScreenKeyboard() 
+        {
+            if (onscreenProcess != null)
+            {
+                if (!onscreenProcess.HasExited)
+                {
+                    onscreenProcess.Kill();
+                }
+                onscreenProcess = null;
+            }
+        }
+
+        private void buttonKeyboard_Click(object sender, EventArgs e)
+        {
+            if (onscreenProcess != null)
+            {
+                CloseOnScreenKeyboard();
+            }
+            else 
+            {
+                ShowOnScreenKeyboard();
             }
         }
     }

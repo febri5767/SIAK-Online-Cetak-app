@@ -37,6 +37,7 @@ namespace SIAK_Online_Cetak_app
             this.pictureBoxCam = new System.Windows.Forms.PictureBox();
             this.timerCam = new System.Windows.Forms.Timer(this.components);
             this.buttonSettingCam = new System.Windows.Forms.PictureBox();
+            this.buttonKeyboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webViewSIAK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSettingCam)).BeginInit();
@@ -45,9 +46,9 @@ namespace SIAK_Online_Cetak_app
             // buttonCetak
             // 
             this.buttonCetak.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonCetak.Location = new System.Drawing.Point(572, 252);
+            this.buttonCetak.Location = new System.Drawing.Point(834, 80);
             this.buttonCetak.Name = "buttonCetak";
-            this.buttonCetak.Size = new System.Drawing.Size(155, 75);
+            this.buttonCetak.Size = new System.Drawing.Size(200, 75);
             this.buttonCetak.TabIndex = 0;
             this.buttonCetak.Text = "Cetak";
             this.buttonCetak.UseVisualStyleBackColor = true;
@@ -56,7 +57,7 @@ namespace SIAK_Online_Cetak_app
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(713, 363);
+            this.buttonExit.Location = new System.Drawing.Point(990, 483);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(75, 75);
             this.buttonExit.TabIndex = 1;
@@ -80,7 +81,7 @@ namespace SIAK_Online_Cetak_app
             this.textBoxCamDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCamDevice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCamDevice.Enabled = false;
-            this.textBoxCamDevice.Location = new System.Drawing.Point(557, 425);
+            this.textBoxCamDevice.Location = new System.Drawing.Point(834, 545);
             this.textBoxCamDevice.Name = "textBoxCamDevice";
             this.textBoxCamDevice.Size = new System.Drawing.Size(150, 13);
             this.textBoxCamDevice.TabIndex = 3;
@@ -88,7 +89,7 @@ namespace SIAK_Online_Cetak_app
             // pictureBoxCam
             // 
             this.pictureBoxCam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxCam.Location = new System.Drawing.Point(468, 117);
+            this.pictureBoxCam.Location = new System.Drawing.Point(745, 237);
             this.pictureBoxCam.Name = "pictureBoxCam";
             this.pictureBoxCam.Size = new System.Drawing.Size(320, 240);
             this.pictureBoxCam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,18 +104,30 @@ namespace SIAK_Online_Cetak_app
             // buttonSettingCam
             // 
             this.buttonSettingCam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSettingCam.Location = new System.Drawing.Point(738, 12);
+            this.buttonSettingCam.Location = new System.Drawing.Point(1015, 12);
             this.buttonSettingCam.Name = "buttonSettingCam";
             this.buttonSettingCam.Size = new System.Drawing.Size(50, 50);
             this.buttonSettingCam.TabIndex = 5;
             this.buttonSettingCam.TabStop = false;
             this.buttonSettingCam.Click += new System.EventHandler(this.buttonSettingCam_Click);
             // 
+            // buttonKeyboard
+            // 
+            this.buttonKeyboard.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonKeyboard.Location = new System.Drawing.Point(834, 183);
+            this.buttonKeyboard.Name = "buttonKeyboard";
+            this.buttonKeyboard.Size = new System.Drawing.Size(200, 50);
+            this.buttonKeyboard.TabIndex = 6;
+            this.buttonKeyboard.Text = "Keyboard";
+            this.buttonKeyboard.UseVisualStyleBackColor = true;
+            this.buttonKeyboard.Click += new System.EventHandler(this.buttonKeyboard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1077, 570);
+            this.Controls.Add(this.buttonKeyboard);
             this.Controls.Add(this.buttonSettingCam);
             this.Controls.Add(this.pictureBoxCam);
             this.Controls.Add(this.textBoxCamDevice);
@@ -142,6 +155,7 @@ namespace SIAK_Online_Cetak_app
         private System.Windows.Forms.PictureBox pictureBoxCam;
         private System.Windows.Forms.Timer timerCam;
         private System.Windows.Forms.PictureBox buttonSettingCam;
+        private System.Windows.Forms.Button buttonKeyboard;
     }
 }
 
