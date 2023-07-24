@@ -49,14 +49,22 @@ namespace SIAK_Online_Cetak_app
 
             //Cek camera
             captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo device in captureDevices) 
+            if (captureDevices.Count <= 0)
             {
-                textBoxCamDevice.Text += device.Name;
+                MessageBox.Show("no camera detected", "SIAK Cetak", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
+            else
+            {
+                foreach (FilterInfo device in captureDevices)
+                {
+                    textBoxCamDevice.Text = device.Name;
+                }
 
-            SetCamera();
-            StartCamera();
-
+                SetCamera();
+                StartCamera();
+            }
+            
             webViewSIAK.Focus();
         }
 
@@ -91,7 +99,7 @@ namespace SIAK_Online_Cetak_app
             //Resolution Number 16 { Width = 1184, Height = 656}
             //Resolution Number 17 { Width = 1280, Height = 720}
             //Resolution Number 18 { Width = 1280, Height = 960}
-            captureDevice.VideoResolution = captureDevice.VideoCapabilities[4];
+            //captureDevice.VideoResolution = captureDevice.VideoCapabilities[4];
         }
 
         private void StartCamera() 
@@ -123,7 +131,7 @@ namespace SIAK_Online_Cetak_app
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureDevice.IsRunning) 
+            if (captureDevice != null && captureDevice.IsRunning)
             {
                 captureDevice.Stop();
             }
